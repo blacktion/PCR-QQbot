@@ -10,7 +10,6 @@ from aiocqhttp.exceptions import Error as CQHttpError
 @nonebot.scheduler.scheduled_job('cron', hour='0,6,12,18')
 async def _():
     bot = nonebot.get_bot()
-    now = datetime.now(pytz.timezone('Asia/Shanghai'))
     try:
         await bot.send_group_msg(group_id=941819447, auto_escape=False,
                                  message="[CQ:image,file=poison.jpg]")
@@ -26,9 +25,9 @@ async def _():
 
     try:
         await bot.send_group_msg(group_id=941819447, auto_escape=True,
-                                 message=f'ATTENTION-已经{now}点了，hxd们别忘了出刀呦！')
+                                 message=f'ATTENTION-已经{now}点了，hxd们别忘刷水妈呦！')
 
         await bot.send_group_msg(group_id=941819447, auto_escape=False,
-                                 message="[CQ:image,file=look.jpg]")
+                                 message="[CQ:image,file=sm.png]")
     except CQHttpError:
         pass

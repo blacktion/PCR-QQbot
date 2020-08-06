@@ -5,6 +5,7 @@ class AllData(object):
     """用于保存所有的数据"""
     def __init__(self):
         """初始化所有数据"""
+        self.clan_war = CLAN_WAR
         self.boss_number = BOSS_NUMBER
         self.current_boss_number = INITIAL - 1
         self.current_battle = CURRENT_BATTLE
@@ -18,7 +19,6 @@ class AllData(object):
         for i in range(OP_NUMBER):
             self.op_list[i] = OP_LIST[i]
         self.tree = set(INITIAL_SET)
-
 
 # ################################################### #
 # #                   重置指令集                      # #
@@ -57,6 +57,10 @@ class AllData(object):
         """重置树"""
         self.tree.clear()
 
+    def reset_clan_war(self):
+        """重置工会战功能"""
+        self.clan_war = CLAN_WAR
+
     def reset_bot(self):
         """重置所有数据"""
         self.reset_boss_number()
@@ -67,6 +71,7 @@ class AllData(object):
         self.reset_boss_blood()
         self.reset_week()
         self.reset_tree()
+        self.reset_clan_war()
 
 # ################################################### #
 # #                   修改指令集                      # #
@@ -99,6 +104,10 @@ class AllData(object):
     def change_week(self, week):
         """更改周目"""
         self.week = week
+
+    def change_clan_war(self):
+        """更改工会战功能开关状态"""
+        self.clan_war = not self.clan_war
 
 # ################################################### #
 # #                   功能指令集                      # #
